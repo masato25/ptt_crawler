@@ -19,10 +19,10 @@ bundle install
 #資料預設是存放至mongodb , 可以修改
 * lib/mongolib.rb<br>
 <code>
-def initialize                                                                                                        
-    #set mongodb url & port
-    mongo_client = MongoClient.new("localhost", 7474)                                                                
-    db = mongo_client.db("pttdb")                                                                                       
-    @coll = db.collection("gossips")                                                                                    
-end 
+def initialize <br>                                                                                                       
+&apmp;&apmp;#set mongodb url & port<br>
+&apmp;&apmp;mongo_client = MongoClient.new("localhost", 7474)<br>                                                                
+&apmp;&apmp;db = mongo_client.db("pttdb")<br>                                                                                       
+&apmp;&apmp;@coll = db.collection("gossips")<br>                                                                                   
+end<br>
 </code>
