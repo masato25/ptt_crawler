@@ -7,22 +7,22 @@ bundle install
 #如何設定爬蟲
 
 * lib/execute.rb
-* 表示抓gossip 版的資料 , 往回抓取一個小時的內容
+* 表示抓gossip 版的資料 , 往回抓取一個小時的內容<br>
 <code>
   Main.new({:limittime => 60* 60}) 
 </code>
-* 如果你想要抓其他的版
+* 如果你想要抓其他的版<br>
 <code>
   Main.new({:url => "https://www.ptt.cc/bbs/Hate/index.html", :limittime => 60* 60})
 </code>
-
+<br>
 #資料預設是存放至mongodb , 可以修改
-* lib/mongolib.rb
+* lib/mongolib.rb<br>
 <code>
 def initialize                                                                                                        
-  #set mongodb url & port
-  mongo_client = MongoClient.new("localhost", 7474)                                                                
-  db = mongo_client.db("pttdb")                                                                                       
-  @coll = db.collection("gossips")                                                                                    
+    #set mongodb url & port
+    mongo_client = MongoClient.new("localhost", 7474)                                                                
+    db = mongo_client.db("pttdb")                                                                                       
+    @coll = db.collection("gossips")                                                                                    
 end 
 </code>
