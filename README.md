@@ -4,6 +4,12 @@
 bundle install
 
 
+#如何運行
+<code>
+cd lib
+ruby execute.rb
+</code>
+
 #如何設定爬蟲
 
 * lib/execute.rb
@@ -19,13 +25,6 @@ bundle install
 #資料預設是存放至mongodb , 可以修改
 * lib/mongolib.rb<br>
 <code>
-def initialize <br>                                                                                                       
-&apmp;&apmp;#set mongodb url & port<br>
-&apmp;&apmp;mongo_client = MongoClient.new("localhost", 7474)<br>                                                                
-&apmp;&apmp;db = mongo_client.db("pttdb")<br>                                                                                       
-&apmp;&apmp;@coll = db.collection("gossips")<br>                                                                                   
-end<br>
-</code>
 
 #建議使用2.6.x版本.3.1.x好像會有問題...
 
