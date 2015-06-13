@@ -76,6 +76,7 @@ class PttSpider
         logger.error(page.css("a")[1])
       end
     else
+      logger.error("[@ps previouspage] - can't get right page url, will return false.")
       return false
     end
   end

@@ -3,14 +3,20 @@ require 'json/add/core'
 require 'mongo'
 require '../setup.rb'
 
+#建議將mongo設定url為uniqe key避免重複抓取
 #db.gossips.ensureIndex( { url: 1 }, { unique: true } )
 class Mongolib
   include Mongo
   include Setup
 
   def initialize
-    mongo_client = MongoClient.new("localhost", 7474)
+    mongo_client = MongoClient.new("127.0.0.1")
+    #預設會將資料存在pttdb資料庫中
     db = mongo_client.db("pttdb")
+    acct = ENV["mongoacct"]
+    password = ENV["mongopass"]
+    db.authenticate(acct,password)
+    #預設將資料存在gossip collection中
     @coll = db.collection("gossips")
   end
 
