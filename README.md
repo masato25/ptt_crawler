@@ -48,6 +48,8 @@ db.gossips.ensureIndex( { url: 1 }, { unique: true } )
 <code>
 #將帳號密碼設到環境變數-> 放到 ~/.bash_profile 中 (mac) 如果是linux就放到
 ~/.bashrc中
+
 export mongoacct="pttuser"
+
 export mongopass="pttpasswd"
 </code>
