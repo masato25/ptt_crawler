@@ -26,3 +26,28 @@ def initialize <br>
 &apmp;&apmp;@coll = db.collection("gossips")<br>                                                                                   
 end<br>
 </code>
+
+#建議使用2.6.x版本.3.1.x好像會有問題...
+
+#設定mognodb -> 先執行mongo 連進去
+<code>
+use pttdb
+
+db.createUser(
+{ user: "pttuser",
+  pwd: "pttpasswd",
+  roles: [
+    "readWrite"
+  ],
+  writeConcern: { w: "majority" , wtimeout: 5000 }
+})
+
+db.gossips.ensureIndex( { url: 1 }, { unique: true } )
+</code>
+
+<code>
+#將帳號密碼設到環境變數-> 放到 ~/.bash_profile 中 (mac) 如果是linux就放到
+~/.bashrc中
+export mongoacct="pttuser"
+export mongopass="pttpasswd"
+</code>
