@@ -7,6 +7,7 @@ bundle install
 #如何運行
 <code>
 cd lib
+
 ruby execute.rb
 </code>
 
