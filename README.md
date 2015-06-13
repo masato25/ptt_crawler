@@ -1,6 +1,6 @@
 #初始安裝
 * 建議使用ruby 2.2以上版本
-* project colone 完成之後執行
+* project git clone 完成之後執行
 bundle install
 
 
