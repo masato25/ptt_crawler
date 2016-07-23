@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 class Post < Struct.new(:tdate, :url, :title, :author, :author_nick_name, :src, :contain)
   def to_map
     map = Hash.new

@@ -1,38 +1,28 @@
-#初始安裝
-* 建議使用ruby 2.2以上版本
-* project git clone 完成之後執行
-bundle install
+# PTT Web Ruby spider v2
 
+### 初始安裝
+* 建議使用ruby 2.3.1 以上版本
+* project git clone 完成之後執行 `bundle install`
 
-#如何運行
-<code>
-cd lib
+### 如何運行
+```
+#How to use it!
+edit -> run.rb
 
-ruby execute.rb
-</code>
-
-#如何設定爬蟲
-
+#How to change the qeruy page by time range
+Controller.new('https://www.ptt.cc/bbs/Gossiping/index.html',86400 * 10)
+```
+### 如何設定爬蟲
 * lib/execute.rb
-* 表示抓gossip 版的資料 , 往回抓取一個小時的內容<br>
-<code>
-  Main.new({:limittime => 60* 60}) 
-</code>
-* 如果你想要抓其他的版<br>
-<code>
-  Main.new({:url => "https://www.ptt.cc/bbs/Hate/index.html", :limittime => 60* 60})
-</code>
-<br>
-#資料預設是存放至mongodb , 可以修改
-* lib/mongolib.rb<br>
-<code>
+* 表示抓gossip 版的資料 , 往回抓取一個小時的內容 `Main.new({:limittime => 60* 60})`
+* 如果你想要抓其他的版 `Main.new({:url => "https://www.ptt.cc/bbs/Hate/index.html", :limittime => 60* 60})`
+* 資料預設是存放至 `mongodb` , 可以修改 `lib/mongolib.rb`
+* 如果想要寫入其他資料庫就需要自己修改程式了. (歡迎PR!)
 
-#建議使用2.6.x版本.3.1.x好像會有問題...
-
-#設定mognodb -> 先執行mongo 連進去
-<code>
+### 設定mognodb
+先執行mongo 連進去
+```
 use pttdb
-
 db.createUser(
 { user: "pttuser",
   pwd: "pttpasswd",
@@ -43,13 +33,10 @@ db.createUser(
 })
 
 db.gossips.ensureIndex( { url: 1 }, { unique: true } )
-</code>
-
-<code>
-#將帳號密碼設到環境變數-> 放到 ~/.bash_profile 中 (mac) 如果是linux就放到
-~/.bashrc中
-
+```
+設定環境變數
+```
+#將帳號密碼設到環境變數-> 放到 ~/.bashrc 中
 export mongoacct="pttuser"
-
 export mongopass="pttpasswd"
-</code>
+```
